@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Article preview component</title>
+
+
+</head>
+
+<body>
+  <main>
+    <div class="image-main">
+      <img src="images/drawers.jpg" alt="icon-main" class="drawers">
+    </div>
+    <div class="text-main">
+      <div class="heading">
+        <h1>Shift the overall look and feel by adding these wonderful
+          touches to furniture in your home</h1>
+      </div>
+      <div class="para">
+        Ever been in a room and felt like something was missing? Perhaps
+        it felt slightly bare and uninviting. I’ve got some simple tips
+        to help you make any room feel complete.
+      </div>
+      <div class="avat">
+        <img src="images/avatar-michelle.jpg" class="avatar" alt="avt">
+        <div class="bottom-main">
+          
+          <div class="detail">
+            <div class="name">Michelle Appleton</div>
+            <div class="date">28 Jun 2020</div>
+          </div>
+          <div class="btn-main">
+            <div class="dialog-boxs">
+              <i>Share</i>
+              <img src="images/icon-facebook.svg" alt="share-fab">
+              <img src="images/icon-twitter.svg" alt="share-twit">
+              <img src="images/icon-pinterest.svg" alt="share-pin">
+            </div>
+            <button id="btns" class="btn" onclick="share()">
+              <img src="images/icon-share.svg" alt="share" class="share">
+            </button>
+
+          </div>
+        </div>
+    </div>
+    </div>
+    <div class="avat-mob">
+      <img src="images/avatar-michelle.jpg" class="avatar" alt="avt">
+    <div class="bottom-main">
+      <div class="dialog-box">
+        <i>Share</i>
+        <img src="images/icon-facebook.svg" alt="share-fab">
+        <img src="images/icon-twitter.svg" alt="share-twit">
+        <img src="images/icon-pinterest.svg" alt="share-pin">
+      </div>
+      <div class="detail">
+        <div class="name">Michelle Appleton</div>
+        <div class="date">28 Jun 2020</div>
+      </div>
+      <div class="btn-main">
+        <button class="btn" id="btn" onclick="share()">
+          <img src="images/icon-share.svg" alt="share" class="share">
+        </button>
+
+      </div>
+    </div>
+    </div>
+  </main>
+</body>
+<script>
+  var window_width = screen.width;
+  console.log(window_width)
+  function share() {
+    console.log('hello')
+    var window_width = screen.width;
+    document.getElementById('btn').setAttribute("class", "btn ");
+    // document.getElementsByClassName("btn")[0].style.transition = "1.2s"
+    if (window_width < 935 && document.getElementsByClassName("detail")[1].style.display == "" ){
+      document.getElementsByClassName("avat-mob")[0].style.backgroundColor = "hsl(217, 19%, 35%)";
+      document.getElementsByClassName("detail")[1].style.display = "none";
+      document.getElementsByClassName("dialog-box")[0].style.display = "flex";
+      document.getElementsByClassName("avatar")[1].style.display = "none";
+      document.getElementById('btn').setAttribute("class", "btn anime");
+      document.getElementById('btn').style.backgroundColor = "hsl(214, 17%, 51%)";
+      document.getElementsByClassName('share')[1].style.filter = "brightness(0) invert(1)"
+    }
+    else if( window_width < 935 && document.getElementsByClassName("detail")[1].style.display == "none"){
+      document.getElementsByClassName("avat-mob")[0].style.backgroundColor = "white";
+      document.getElementsByClassName("detail")[1].style.display = "";
+      document.getElementsByClassName("dialog-box")[0].style.display = "none";
+      document.getElementsByClassName("avatar")[1].style.display = "flex";
+      document.getElementById('btn').setAttribute("class", "btn ");
+      document.getElementById('btn').style.backgroundColor = "hsl(210, 46%, 95%)";
+      document.getElementsByClassName('share')[1].style.filter = ""
+    }
+    if (window_width > 935 && document.getElementsByClassName("dialog-boxs")[0].style.display == "" ){
+      document.getElementsByClassName("dialog-boxs")[0].style.position = "absolute";
+      document.getElementsByClassName("dialog-boxs")[0].style.display = "flex";
+      document.getElementById('btns').setAttribute("class", "btn anime");
+      document.getElementById('btns').style.backgroundColor = "hsl(214, 17%, 51%)";
+      document.getElementsByClassName('share')[0].style.filter = "brightness(0) invert(1)"
+      
+    }
+    else if (window_width > 935 && document.getElementsByClassName("dialog-boxs")[0].style.display == "flex"){
+      document.getElementsByClassName("dialog-boxs")[0].style.position = "absolute";
+      document.getElementsByClassName("dialog-boxs")[0].style.display = "";
+      document.getElementById('btns').setAttribute("class", "btn ");
+      document.getElementById('btns').style.backgroundColor = "hsl(210, 46%, 95%)";
+      document.getElementsByClassName('share')[0].style.filter = ""
+    }
+  }
+</script>
+
+</html>
